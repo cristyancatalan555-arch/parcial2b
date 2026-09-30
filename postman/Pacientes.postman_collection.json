@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "Parcial II - Pacientes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "idPaciente",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Mostrar activos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/pacientes/mostrarActivos"
+      }
+    },
+    {
+      "name": "Guardar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/pacientes",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Paciente de prueba\",\n  \"dpi\": \"1234567890101\",\n  \"telefono\": \"55551234\",\n  \"direccion\": \"Zona 1\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Modificar",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/pacientes/{{idPaciente}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Paciente modificado\",\n  \"dpi\": \"1234567890101\",\n  \"telefono\": \"55554321\",\n  \"direccion\": \"Zona 2\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Anular",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "{{baseUrl}}/pacientes/anular/{{idPaciente}}"
+      }
+    }
+  ]
+}
